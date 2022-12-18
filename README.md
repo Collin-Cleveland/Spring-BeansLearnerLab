@@ -32,14 +32,14 @@
 * Open the project via its `pom.xml` from IntelliJ > File > Open
 	* Be sure to `Open as Project` when prompted 
 
-### Part 1.0 - Create `Person` Class
-* Create a `Person` class.
+### Part 1.0 - Create `Entities.Person` Class
+* Create a `Entities.Person` class.
 	* The class should declare a `final` field named `id` of type `long`.
 	* The class should declare a field named `name` of type `String`.	
-	* `Person` constructor should have a parameter of type `Long id, String name` which sets each of the fields to their respective value.
-	* The class should define a `getId()` method which returns the `Person` object's `id` field.
-	* The class should define a `getName()` method which returns the `Person` object's `name` field.
-	* The class should define a `setName()` method which sets the `Person` object's `name` field.
+	* `Entities.Person` constructor should have a parameter of type `Long id, String name` which sets each of the fields to their respective value.
+	* The class should define a `getId()` method which returns the `Entities.Person` object's `id` field.
+	* The class should define a `getName()` method which returns the `Entities.Person` object's `name` field.
+	* The class should define a `setName()` method which sets the `Entities.Person` object's `name` field.
 
 -
 ### Part 2.0 - Create `Learner` Interface
@@ -52,7 +52,7 @@
 -
 ### Part 3.0 - Create `Student` Class
 * Create a `Student` class such that:
-	* `Student` is a subclass of `Person`
+	* `Student` is a subclass of `Entities.Person`
 	* `Student` implements the `Learner` interface
 	* `Student` should have an instance variable `totalStudyTime` of type `double`
 	* `Student` should have a concrete implementation of the `learn` method which increments the `totalStudyTime` variable by the specified `numberOfHours` argument.
@@ -80,7 +80,7 @@
 -
 ### Part 5.0 - Create `Instructor` Class
 * Create an `Instructor` class such that:
-	* `Instructor` is a subclass of `Person`
+	* `Instructor` is a subclass of `Entities.Person`
 	* `Instructor` implements the `Teacher` interface
 	* `Instructor` should have a concrete implementation of the `teach` method which invokes the `learn` method on the specified `Learner` object.
 	* `Instructor` should have a concrete implementation of the `lecture` method which invokes the `learn` method on each of the elements in the specified array of `Learner` objects.
@@ -89,7 +89,7 @@
 
 ### Part 6.0 - Create `People`
 * Create an abstract `People` class
-	* The class signature should be parameterized with `PersonType` such that `PersonType` is a sub class of `Person`.
+	* The class signature should be parameterized with `PersonType` such that `PersonType` is a sub class of `Entities.Person`.
 	* The class should implement `Iterable` of type `PersonType`.
 	* Upon construction `People` should consume a `List` of `PersonType` and set it to a respective `personList` field.
 	* The class should define a constructor which consumes a variable number of `PersonType` objects and sets the `personList` field respectively.
