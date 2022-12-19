@@ -1,60 +1,42 @@
 package main.java.Entities;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collection;
 import java.util.List;
 
-public abstract class People<E extends Person> implements Iterable<E> {
+public abstract class People<PersonType extends Person, E> implements Iterable<E> {
 
-    List<E> personList = new ArrayList<>();
+    private List<PersonType> personList;
+    private PersonType p;
 
-    public void add(E p1) {
-        personList.add(p1);
+    public People(PersonType p){this.p = p;}
+    public People(List<PersonType> personList) {this.personList = personList;}
+
+    public List<PersonType> getPersonList() {return personList;}
+
+    public void setPersonList(List<PersonType> personList) {this.personList = personList;}
+
+    public void add(PersonType p){personList.add(p);}
+
+    public void remove(PersonType p){personList.remove(p);}
+
+    public int size(){return personList.size();}
+
+    public void clear(){personList.clear();}
+
+    public void addAll(Iterable<PersonType> personList){
+        this.personList.addAll((Collection<? extends PersonType>) personList);
     }
 
-    public void remove(E p1) {
-        personList.remove(p1);
-    }
-
-    public void remove(int i) {
-        for (E p : personList) {
-            if (p.getId() == i) {
-                personList.remove(p);
-                break;
+    public PersonType findById(long id){
+        for (PersonType personType : personList) {
+            if (personType.getId() == id) {
+                return personType;
             }
-        }
-    }
-
-    public void removeAll() {
-        personList.clear();
-    }
-
-//    public E[] toArray(Entities.Student[] students) {
-//        E[] newArray = (E[]) Array.newInstance(personList.get(0).getClass(), personList.size());
-//        for (int i=0; i<personList.size(); i++) {
-//            newArray[i] = personList.get(i);
-//        }
-//        return newArray;
-//    }
-
-    public E findById(int i) {
-        for (E p : personList) {
-            if (p.getId() == i) return p;
         }
         return null;
     }
 
-    public boolean contains(E p) {
-        return personList.contains(p);
-    }
-
-    public int count() {
-        return personList.size();
-    }
-
-    @Override
-    public Iterator<E> iterator() {
-        return personList.stream().iterator();
+    public List<PersonType> findAll(){
+        return personList;
     }
 }
