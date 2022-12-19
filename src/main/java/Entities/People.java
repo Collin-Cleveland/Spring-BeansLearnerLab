@@ -1,9 +1,11 @@
 package main.java.Entities;
 
+import main.java.Interfaces.Learner;
+
 import java.util.Collection;
 import java.util.List;
 
-public abstract class People<PersonType extends Person, E> implements Iterable<E> {
+public abstract class People<PersonType extends Person> implements Iterable<PersonType> {
 
     private List<PersonType> personList;
     private PersonType p;
@@ -35,8 +37,5 @@ public abstract class People<PersonType extends Person, E> implements Iterable<E
         }
         return null;
     }
-
-    public List<PersonType> findAll(){
-        return personList;
-    }
+    public List<PersonType> findAll(){return personList;}
 }
