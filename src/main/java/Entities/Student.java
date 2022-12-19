@@ -1,6 +1,6 @@
-package Entities;
+package main.java.Entities;
 
-import Interfaces.Learner;
+import main.java.Interfaces.Learner;
 
 public class Student extends Person implements Learner {
 
